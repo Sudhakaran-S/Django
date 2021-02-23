@@ -69,11 +69,20 @@ https://templatemo.com/tm-559-zay-shop
                             <a class="nav-link" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
+                            <a class="nav-link" href="about">About</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="accounts/logout">Hello {{user.username}} Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="accounts/register">Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="shop.html">Shop</a>
+                            <a class="nav-link" href="accounts/login">Login</a>
                         </li>
+                        {% endif %}
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">Contact</a>
                         </li>
@@ -254,7 +263,7 @@ https://templatemo.com/tm-559-zay-shop
                 {% for dest in dests %}
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
-                        <a href="shop-single.html">
+                        <a href="#">
                             <img src="{{dest.img.url}}" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
@@ -273,7 +282,7 @@ https://templatemo.com/tm-559-zay-shop
                                 </li>
                                 <li class="text-muted text-right">${{dest.price}}</li>
                             </ul>
-                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">{{dest.name}}</a>
+                            <a href="#" class="h2 text-decoration-none text-dark">{{dest.name}}</a>
                             <p class="card-text">
                                 {{dest.desc}}
                             </p>

@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from .models import rewrite, Categories
 # Create your views here.
 
+
+
 def index(request):
 
     # dest1 = rewrite()
